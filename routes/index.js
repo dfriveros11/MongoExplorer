@@ -15,10 +15,7 @@ router.get("/", function(req, res) {
 //DATA ENDPOINT
 router.get("/collection/:query", (req, res) => {
   console.log("parms", req.parms);
-  const query = {
-    name: new RegExp(`.*${req.params.query}.*`, "i")
-  };
-  mu.mongo.collection(query).then(collection => {
+  mu.mongo.collection(req.params.query).then(collection => {
     res.json(collection);
   });
 });
