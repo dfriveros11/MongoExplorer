@@ -18,8 +18,8 @@ router.get("/collection/:query", (req, res) => {
   const query = {
     name: new RegExp(`.*${req.params.query}.*`, "i")
   };
-  mu.grades.find(query).then(grades => {
-    res.json(grades);
+  mu.mongo.collection(query).then(collection => {
+    res.json(collection);
   });
 });
 

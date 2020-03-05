@@ -3,7 +3,7 @@ console.log("cargo");
 const formSearch = document.querySelector("#search");
 
 const populateCollection = collection => {
-  const collectionUl = document.querySelector("#collection");
+  const collectionUl = document.querySelector("#colectionsInfo");
   collectionUl.innerHTML = "";
 
   collection.forEach(data => {
@@ -16,7 +16,7 @@ const populateCollection = collection => {
 };
 
 const onSearch = evt => {
-  const query = document.querySelector("#formSearch button").value;
+  const query = document.querySelector("#search option").value;
   fetch(`/collection/${query}`)
     .then(res => res.json())
     .then(populateCollection);
