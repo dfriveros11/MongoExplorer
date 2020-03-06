@@ -8,12 +8,15 @@ function MongoUtils() {
     pwd = process.env.MONGO_PWD;
 
   mu.connect = () => {
-    const client = new MongoClient(
-      `mongodb://${user}:${pwd}@${hostname}:${port}`,
-      {
-        useUnifiedTopology: true
-      }
-    );
+    let url;
+    if (user === undefined) {
+      url = process.env.MONGODB_URI;
+    } else {
+      url = `mongodb://${user}:${pwd}@${hostname}:${port}`;
+    }
+    const client = new MongoClient(url, {
+      useUnifiedTopology: true
+    });
     return client.connect();
   };
 
