@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my examn 1 for web development. I decided to do the next requirments **show the list of dbs, collections, and data for the collections. In addition, you can create, update and delete data for the collections. I take the option to deliver the examan 1 for saturday 8 am **
+This is my examn 1 for web development. I decided to do the next requirments **show the list of dbs, collections, and data for the collections. In addition, you can create, update and delete data for the collections. I take the option to deliver the examan 1 for saturday 8 am**
 
 ## Heorku Deploy 
 
