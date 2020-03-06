@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PruebaColorBlindness</title>
+    <title>Mongo Explore</title>
 
     <meta
       name="viewport"
@@ -18,29 +18,101 @@
   </head>
   <body>
     <div class="container">
+      <h1>Mongo Explorer</h1>
       <div class="row">
-        <div class="col-12 col-md-4">
-          <h1>Mongo Explorer</h1>
-          <ul id="collection">
-            <form id="formSearch" action="/seacrchSS">
-              <select id="search" name="" multiple>
-                <% dbs.forEach( (dbs) => { %>
-                <option value=""><%= dbs.name %></option>
+        <div class="col-4 col-md-4">
+          <h2>Databases</h2>
+          <ul id="databases">
+            <form id="formSearch" action="/seacrchDatabase">
+              <select id="searchDatabase">
+                <% database.forEach( (database) => { %>
+                <option value="<%= database.name %>"
+                  ><%= database.name %></option
+                >
                 <% }) %>
               </select>
             </form>
           </ul>
+          <!-- lista database name -->
+
+          <h2>Collections</h2>
+          <ul id="collections">
+            <form id="formSearch" action="/seacrchCollection">
+              <select id="searchCollection"> </select>
+            </form>
+          </ul>
+          <!-- lista collections name -->
         </div>
         <!-- databases -->
-      <div class="col-12 col-md-4">
-          <ul id="colectionsInfo">
-          </ul>
+        <div class="col-12 col-md-8">
+          <div id="collectionInfo"></div>
         </div>
-
+        <!-- Table Collection Info -->
       </div>
+
+      <div class="col-12 col-md-8">
+        <h2>Create</h2>
+        <div class="input-group">
+          <form id="formCreate">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="name"
+              required
+            />
+            <button class="btn btn-primary" type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+      <!-- Create collection info -->
+      <div class="col-12 col-md-8">
+        <h2>Delete</h2>
+        <div class="input-group">
+          <form id="formDelete">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="name"
+              required
+            />
+            <button class="btn btn-danger btn-secondary" type="submit">
+              Delete
+            </button>
+          </form>
+        </div>
+        <!-- Delete a collection info -->
+      </div>
+
+      <div class="col-12 col-md-8">
+          <h2>Update</h2>
+          <div class="input-group">
+            <form id="formUpdate">
+              <input
+                id="oldName"
+                class="form-control"
+                type="text"
+                placeholder="Old name"
+                required
+              />
+              <input
+              id="newName"
+                class="form-control"
+                type="text"
+                placeholder="new name"
+                required
+              />
+              <button class="btn btn-secondary" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+        <!-- update a collection -->
     </div>
 
-    <script src="./javascripts/fetch.js"></script>
+    <script src="./javascripts/fetchCollectionNames.js"></script>
+    <script src="./javascripts/fetchCollectionInfo.js"></script>
+    <script src="./javascripts/createCollectionData.js"></script>
+    <script src="./javascripts/deleteCollectionData.js"></script>
+    <script src="./javascripts/updateCollectionData.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

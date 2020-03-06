@@ -5,19 +5,60 @@ const mu = require("../db/MongoUtils.js");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-  mu.mongo.database().then(dbs => {
+  mu.mongo.database().then(db => {
+    const database = Array.from(db);
     res.render("index", {
-      dbs
+      database
     });
   });
 });
 
-//DATA ENDPOINT
-router.get("/collection/:query", (req, res) => {
-  console.log("parms", req.parms);
-  mu.mongo.collection(req.params.query).then(collection => {
+//DATA ENDPOINT FOR COLLECTIONS
+router.get("/collection/:name", (req, res) => {
+  mu.mongo.collection(req.params.name).then(collection => {
     res.json(collection);
   });
+});
+
+//DATA ENDPOINT FOR COLLECTIONS INFO
+router.get("/collection/:dbname/:name", (req, res) => {
+  mu.mongo
+    .collectionData(req.params.dbname, req.params.name)
+    .then(collection => {
+      res.json(collection);
+    });
+});
+
+//Create Collection Info
+router.post("/collection/create", (req, res) => {
+  const databaseName = req.body.databaseName;
+  const collectionName = req.body.collectionName;
+  mu.mongo
+    .insertCollectionData(databaseName, collectionName, req.body.name)
+    .then(res.redirect("/"));
+});
+
+//Delete a Collection Info
+router.post("/collection/delete", (req, res) => {
+  const databaseName = req.body.databaseName;
+  const collectionName = req.body.collectionName;
+  mu.mongo
+    .deleteCollectionData(databaseName, collectionName, req.body.name)
+    .then(res.redirect("/"));
+});
+
+//Update a Collection Info
+router.put("/collection/update", (req, res) => {
+  const databaseName = req.body.databaseName;
+  const collectionName = req.body.collectionName;
+  mu.mongo
+    .updateCollectionData(
+      databaseName,
+      collectionName,
+      req.body.oldName,
+      req.body.newName
+    )
+    .then(res.redirect("/"));
 });
 
 module.exports = router;
