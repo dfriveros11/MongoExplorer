@@ -6,7 +6,10 @@ const mu = require("../db/MongoUtils.js");
 /* GET home page. */
 router.get("/", function(req, res) {
   mu.mongo.database().then(db => {
-    const database = Array.from(db);
+    const array1 = Array.from([{ name: "Select a database" }]);
+    const databaseFound = Array.from(db);
+    const database = array1.concat(databaseFound);
+    console.log("database", database);
     res.render("index", {
       database
     });

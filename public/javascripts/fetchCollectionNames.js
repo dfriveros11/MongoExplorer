@@ -5,7 +5,7 @@ const populateCollection = collection => {
   collectionSelector.innerHTML = "";
 
   const collectionEmpty = document.createElement("option");
-  collectionEmpty.textContent = "";
+  collectionEmpty.textContent = "Select a collection";
   collectionSelector.appendChild(collectionEmpty);
 
   collection.forEach(data => {
@@ -17,13 +17,13 @@ const populateCollection = collection => {
 
 const onSearch = evt => {
   const select = document.querySelector("#searchDatabase");
-  const query = select.options[select.selectedIndex].value;
-  fetch(`/collection/${query}`)
+  const databaseName = select.options[select.selectedIndex].value;
+  fetch(`/collection/${databaseName}`)
     .then(res => res.json())
     .then(populateCollection);
 
   const msg = new SpeechSynthesisUtterance(
-    "You have selected the database with name " + query
+    "You have selected the database with name " + databaseName
   );
   msg.rate = 0.7;
   window.speechSynthesis.speak(msg);
