@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my examn 1 for web development. I decided to do the next requirments **show the list of dbs, collections, and data for the collections. In addition, you can create, update and delete data for the collections. Also, you can wacth the collection data with pagination (back and next button).  Finally, my creative component is that when you select or do an action with the collection(add, update, delete) you will hear an explanation of what are you doing in machine voice. I take the option to deliver the examan 1 for saturday 8 am**
+This is my examn 1 for web development. I decided to do the next requirments **show the list of dbs, collections, and data for the collections. In addition, you can create, update and delete data for the collections. Also, you can wacth the collection data with pagination (back and next button).  Finally, my creative component is that when you select or do an action with the collection(add, update, delete) you will hear an explanation of what are you doing in machine voice. I take the option to deliver the examan 1 for saturday before 8 am**
 
 ## Heorku Deploy 
 
