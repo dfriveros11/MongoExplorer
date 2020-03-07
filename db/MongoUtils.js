@@ -46,7 +46,7 @@ function MongoUtils() {
       const dataCollection = client.db(dbName).collection(collectionName);
       return dataCollection
         .find({})
-        .limit(2)
+        .limit(20)
         .skip(pag)
         .sort({ _id: -1 })
         .toArray()
