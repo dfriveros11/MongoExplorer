@@ -24,7 +24,10 @@ To run the proyect locally, download it or git clone the proyect. Then,
  #run the proyect
  yarn start
 ```
-
+**It will deploy in:**
+```
+http://localhost:8080/
+```
 ## Authors 
 
 - [Diego Riveros](https://dfriveros11.github.io/DiegoRiverosWebPage/)  :man:
