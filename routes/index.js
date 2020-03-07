@@ -21,9 +21,11 @@ router.get("/collection/:name", (req, res) => {
 });
 
 //DATA ENDPOINT FOR COLLECTIONS INFO
-router.get("/collection/:dbname/:name", (req, res) => {
+router.get("/collection/:dbname/:name/:pag", (req, res) => {
+  const page = req.params.pag || 1;
+  const limit = 2;
   mu.mongo
-    .collectionData(req.params.dbname, req.params.name)
+    .collectionData(req.params.dbname, req.params.name, limit * page - limit)
     .then(collection => {
       res.json(collection);
     });

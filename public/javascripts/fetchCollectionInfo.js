@@ -66,7 +66,7 @@ const onUpdate = evt => {
   const selectCollection = document.querySelector("#searchCollection");
   const collectionName =
     selectCollection.options[selectCollection.selectedIndex].value;
-  fetch(`/collection/${databaseName}/${collectionName}`)
+  fetch(`/collection/${databaseName}/${collectionName}/1`)
     .then(res => res.json())
     .then(populateInfo);
 

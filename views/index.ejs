@@ -46,6 +46,22 @@
         <!-- databases -->
         <div class="col-12 col-md-8">
           <div id="collectionInfo"></div>
+          <div class="row">
+            <div class="col-4 col-md-4">
+              <form id="backPagination">
+                <button class="btn btn-danger btn-secondary" type="submit">
+                  Back Page
+                </button>
+              </form>
+            </div>
+            <div class="col-4 col-md-4">
+              <form id="nextPagination">
+                <button class="btn btn-danger btn-secondary" type="submit">
+                  Next Page
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
         <!-- Table Collection Info -->
       </div>
@@ -54,12 +70,7 @@
         <h2>Create</h2>
         <div class="input-group">
           <form id="formCreate">
-            <input
-              class="form-control"
-              type="text"
-              placeholder="name"
-              required
-            />
+            <input class="form-control" type="text" placeholder="name" />
             <button class="btn btn-primary" type="submit">Create</button>
           </form>
         </div>
@@ -84,28 +95,28 @@
       </div>
 
       <div class="col-12 col-md-8">
-          <h2>Update</h2>
-          <div class="input-group">
-            <form id="formUpdate">
-              <input
-                id="oldName"
-                class="form-control"
-                type="text"
-                placeholder="Old name"
-                required
-              />
-              <input
+        <h2>Update</h2>
+        <div class="input-group">
+          <form id="formUpdate">
+            <input
+              id="oldName"
+              class="form-control"
+              type="text"
+              placeholder="Old name"
+              required
+            />
+            <input
               id="newName"
-                class="form-control"
-                type="text"
-                placeholder="new name"
-                required
-              />
-              <button class="btn btn-secondary" type="submit">Update</button>
-            </form>
-          </div>
+              class="form-control"
+              type="text"
+              placeholder="new name"
+              required
+            />
+            <button class="btn btn-secondary" type="submit">Update</button>
+          </form>
         </div>
-        <!-- update a collection -->
+      </div>
+      <!-- update a collection -->
     </div>
 
     <script src="./javascripts/fetchCollectionNames.js"></script>
@@ -113,6 +124,7 @@
     <script src="./javascripts/createCollectionData.js"></script>
     <script src="./javascripts/deleteCollectionData.js"></script>
     <script src="./javascripts/updateCollectionData.js"></script>
+    <script src="./javascripts/paginationCollectionData.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

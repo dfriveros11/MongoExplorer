@@ -41,12 +41,13 @@ function MongoUtils() {
         .finally(() => client.close());
     });
 
-  mu.mongo.collectionData = (dbName, collectionName) =>
+  mu.mongo.collectionData = (dbName, collectionName, pag) =>
     mu.connect().then(client => {
       const dataCollection = client.db(dbName).collection(collectionName);
       return dataCollection
         .find({})
-        .limit(20)
+        .limit(2)
+        .skip(pag)
         .sort({ _id: -1 })
         .toArray()
         .finally(() => client.close());
